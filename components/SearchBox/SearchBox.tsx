@@ -2,12 +2,12 @@ import type { DebouncedState } from "use-debounce"
 import css from "./SearchBox.module.css"
 
 interface SearchBoxProps{
-  onChange:DebouncedState<(value: string) => void>
-  text:string
+  onChange:(value: string) => void
+  value:string
 }
 
 
-export default function SearchBox({onChange, text}:SearchBoxProps) {
+export default function SearchBox({onChange, value}:SearchBoxProps) {
  
   function handleChange(e:React.ChangeEvent<HTMLInputElement>) {
     onChange(e.target.value)
@@ -17,7 +17,7 @@ export default function SearchBox({onChange, text}:SearchBoxProps) {
       className={css.input}
       type="text"
       placeholder="Search notes"
-      defaultValue={text}
+      defaultValue={value}
       onChange={handleChange}
     />
   )

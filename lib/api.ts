@@ -1,22 +1,9 @@
+import { CreateNoteRequest, Note } from "@/types/note";
 import axios from "axios";
-// import type { CreateNoteRequest, Note } from "../types/note";
+
 
 
 const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-
-export interface Note{
-    id: string,
-    title: string,
-    content: string,
-    tag:"Todo" | "Work" | "Personal" | "Meeting" | "Shopping"
-}
-
-
-export interface CreateNoteRequest{
-    title: string,
-    content: string,
-    tag:"Todo" | "Work" | "Personal" | "Meeting" | "Shopping"
-}
 
 
 interface FetchNotesResponse{

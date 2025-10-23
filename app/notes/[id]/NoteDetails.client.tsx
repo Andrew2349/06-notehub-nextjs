@@ -17,8 +17,9 @@ export default function NoteDetailsClient() {
         refetchOnMount:false
     })
 
-    if(error || !data) return <p>Something went wrong.</p>;
     if(isLoading) return <p>Loading, please wait...</p>
+    if (error) return <p>Something went wrong.</p>;
+    if (!data) return <p>Note not found.</p>;
     return (
          
         <div className={css.container}>
@@ -27,7 +28,7 @@ export default function NoteDetailsClient() {
 	    <h2>{data?.title}</h2>
 	  </div>
                 <p className={css.content}>{data?.content}</p>
-	  <p className={css.date}>Created date</p>
+          <p className={css.date}>{data.createdAt}</p>
 	</div>
 </div>
        
